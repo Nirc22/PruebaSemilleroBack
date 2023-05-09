@@ -14,8 +14,9 @@ public class RafPacienteController {
     @Autowired
     private RafPacienteDAO rafPacienteDAO;
 
-    @RequestMapping(value = "api/pacientes")
-    public List<RafPacientesModel> getPacientes(){
+    @RequestMapping(value = "api/pacientes", method = RequestMethod.GET)
+    public List<RafPacientesModel> getPacientes(@RequestHeader(value = "Authorization") String token){
+
         return rafPacienteDAO.getPacientes();
     }
 
