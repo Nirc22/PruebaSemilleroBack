@@ -1,6 +1,7 @@
 package com.semillero.pruebaSemillero.dao;
 
 import com.semillero.pruebaSemillero.models.RafAdministradoresModel;
+import com.semillero.pruebaSemillero.models.RafPacientesModel;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import jakarta.persistence.EntityManager;
@@ -42,6 +43,11 @@ public class RafAuthAdministradorDAOImpl implements RafAuthAdministradorDAO{
     @Override
     public void registrarAdministrador(RafAdministradoresModel rafAdministradoresModel) {
         entityManager.merge(rafAdministradoresModel);
+    }
+
+    @Override
+    public void registrarPaciente(RafPacientesModel rafPacientesModel) {
+        entityManager.merge(rafPacientesModel);
     }
 
 }

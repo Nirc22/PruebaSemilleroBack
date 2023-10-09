@@ -14,9 +14,7 @@ import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.util.Date;
 
-/**
- * @author Mahesh
- */
+//el @component permite compartir en todos los lugares
 @Component
 public class JWTUtil {
     @Value("${security.jwt.secret}")
@@ -38,6 +36,8 @@ public class JWTUtil {
      * @param subject
      * @return
      */
+
+    //Genera el JWT
     public String create(String id, String subject) {
 
         // The JWT signature algorithm used to sign the token

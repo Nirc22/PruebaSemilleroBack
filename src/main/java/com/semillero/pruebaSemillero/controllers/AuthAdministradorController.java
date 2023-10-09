@@ -18,6 +18,7 @@ public class AuthAdministradorController {
     @Autowired
     private RafAuthAdministradorDAO rafAuthAdministradorDAO;
 
+    //
     @Autowired
     private JWTUtil jwtUtil;
 
@@ -40,4 +41,10 @@ public class AuthAdministradorController {
         rafAdministradoresModel.setPassword(hash);
         rafAuthAdministradorDAO.registrarAdministrador(rafAdministradoresModel);
     }
+
+    @RequestMapping(value ="api/administradores/crearPaciente", method = RequestMethod.POST)
+    public void registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
+        rafAuthAdministradorDAO.registrarPaciente(rafPacientesModel);
+    }
+
 }
