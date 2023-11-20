@@ -12,7 +12,7 @@ import java.util.jar.JarException;
 public class TokenUtils {
 
     //se puede colocar en aplication-properties
-    private final static String ACCESS_TOKEN_SECRET = "asdfasdf231231lkj123";
+    private final static String ACCESS_TOKEN_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMDA3NjA1MTMzIiwibmFtZSI6Ik5pY29sYXMiLCJpYXQiOjIyMTEyMDAwfQ.o15zwqZbvhBY2TF14lEsivVZ-ubytsByWzbxNuL7fHQ";
     private final static Long ACCESSS_TOKEN_VALIDITY_SECONDS = 28_800L;
 
     public static String crearToken(String nombre, String email){
