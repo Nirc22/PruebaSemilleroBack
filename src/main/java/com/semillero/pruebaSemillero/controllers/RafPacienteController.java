@@ -23,7 +23,7 @@ public class RafPacienteController {
     @RequestMapping(value = "api/pacientes", method = RequestMethod.GET)
     public List<RafPacientesModel> getPacientes(@RequestHeader(value = "Authorization") String token){
 
-        if(!validarToken(token)){return null;}
+        //if(!validarToken(token)){return null;}
 
         return rafPacienteDAO.getPacientes();
     }
