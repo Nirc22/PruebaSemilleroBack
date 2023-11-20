@@ -13,4 +13,6 @@ public interface RafAuthAdministradorDAO {
 
     void registrarPaciente(RafPacientesModel rafPacientesModel);
 
+    List<RafPacientesModel> getPacientes();
+
 }

@@ -7,10 +7,9 @@ import com.semillero.pruebaSemillero.utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class AuthAdministradorController {
@@ -26,11 +25,19 @@ public class AuthAdministradorController {
     public String login(@RequestBody RafAdministradoresModel rafAdministradoresModel){
 
         RafAdministradoresModel administradorLogueado = rafAuthAdministradorDAO.getEmailPassword(rafAdministradoresModel);
+        //creando el token
         if (administradorLogueado != null){
             String tokenJWT = jwtUtil.create(String.valueOf(administradorLogueado.getNmid()), administradorLogueado.getEmail());
             return tokenJWT;
         }
         return "FAIL";
+    }
+
+    private boolean validarToken(String token) {
+
+        String administradorId = jwtUtil.getKey(token);//se extrae el id del usuario
+        return administradorId != null;
+
     }
 
     @RequestMapping(value = "api/administradores/crear", method = RequestMethod.POST)
@@ -45,6 +52,15 @@ public class AuthAdministradorController {
     @RequestMapping(value ="api/administradores/crearPaciente", method = RequestMethod.POST)
     public void registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
         rafAuthAdministradorDAO.registrarPaciente(rafPacientesModel);
+    }
+
+    @RequestMapping(value = "api/administradores/get", method = RequestMethod.GET)
+    public List<RafPacientesModel> getPacientes(@RequestHeader(value = "Authorization") String token){
+
+        if(!validarToken(token)){return null;}
+
+
+        return rafAuthAdministradorDAO.getPacientes();
     }
 
 }

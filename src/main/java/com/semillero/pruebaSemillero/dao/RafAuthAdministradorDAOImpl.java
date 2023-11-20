@@ -50,4 +50,10 @@ public class RafAuthAdministradorDAOImpl implements RafAuthAdministradorDAO{
         entityManager.merge(rafPacientesModel);
     }
 
+    @Override
+    public List<RafPacientesModel> getPacientes() {
+        String query = "FROM RafPacientesModel";
+        return entityManager.createQuery(query).getResultList();
+    }
+
 }

@@ -25,7 +25,6 @@ public class RafPacienteController {
 
         if(!validarToken(token)){return null;}
 
-
         return rafPacienteDAO.getPacientes();
     }
 
@@ -37,10 +36,10 @@ public class RafPacienteController {
     }
 
     @RequestMapping(value = "api/pacientes/{id}", method = RequestMethod.DELETE)
-    public void eliminarPacientes(@RequestHeader(value = "Authorization") String token,
+    public void eliminarPacientes(@RequestHeader (value = "Authorization") String token,
                                   @PathVariable Long id){
 
-        if(!validarToken(token)){return;}
+        //if(!validarToken(token)){return;}
         rafPacienteDAO.eliminarPacientes(id);//tratar con String
     }
 
@@ -48,4 +47,5 @@ public class RafPacienteController {
     public void registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
         rafPacienteDAO.registrarPaciente(rafPacientesModel);
     }
+
 }
