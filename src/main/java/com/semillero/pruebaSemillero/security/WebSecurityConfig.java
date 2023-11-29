@@ -32,10 +32,12 @@ public class WebSecurityConfig {
         jwtAuthenticationFilter.setFilterProcessesUrl("/login");
 
         return http
+                .cors()
+                .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("api")
-                .permitAll()
+                //.requestMatchers("/api")
+                //.permitAll()
                 .anyRequest()
                 .authenticated()
                 //.and()
@@ -72,7 +74,8 @@ public class WebSecurityConfig {
         PasswordEncoder passwordEncoder () {
             return new BCryptPasswordEncoder();}
 
-/*    public static void main(String[] args){
+/* se usa para encriptar la contraseña del administrador
+    public static void main(String[] args){
         System.out.println("pass "+ new BCryptPasswordEncoder().encode("123456"));
     }*/
 
