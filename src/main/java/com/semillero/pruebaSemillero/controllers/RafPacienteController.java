@@ -2,8 +2,10 @@ package com.semillero.pruebaSemillero.controllers;
 
 import com.semillero.pruebaSemillero.dao.RafPacienteDAO;
 import com.semillero.pruebaSemillero.dao.RafEspecieDAO;
+import com.semillero.pruebaSemillero.dao.RafRazaDAO;
 import com.semillero.pruebaSemillero.models.RafEspecieModel;
 import com.semillero.pruebaSemillero.models.RafPacientesModel;
+import com.semillero.pruebaSemillero.models.RafRazaModel;
 import com.semillero.pruebaSemillero.utils.JWTUtil;
 import jdk.jfr.Frequency;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class RafPacienteController {
 
     @Autowired
     private RafEspecieDAO rafEspecieDAO;
+    @Autowired
+    private RafRazaDAO rafRazaDAO;
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -53,10 +57,16 @@ public class RafPacienteController {
         rafPacienteDAO.registrarPaciente(rafPacientesModel);
     }
 
-    @RequestMapping(value = "api/especies", method = RequestMethod.GET)
+    @RequestMapping(value = "api/getEspecies", method = RequestMethod.GET)
     public List<RafEspecieModel> getEspecies(@RequestHeader(value = "Authorization") String token){
 
         return rafEspecieDAO.getEspecies();
+    }
+
+    @RequestMapping(value = "api/getRazas", method = RequestMethod.GET)
+    public List<RafRazaModel> getRazas(){
+
+        return rafRazaDAO.getRazas();
     }
 
 }
