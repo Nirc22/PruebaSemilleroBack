@@ -1,3 +1,5 @@
+/*
+
 INSERT INTO raf_tipoIdentificacion (dsnombre)
 VALUES ('Cédula de ciudadanía'),
         ('Tarjeta extranjería'),
@@ -28,3 +30,4 @@ VALUES ('Yorkshire Terrier', 1),
        ('Angus', 4),
        ('Charolais', 4),
        ('Hereford ', 4);
+*/

@@ -1,6 +1,8 @@
 package com.semillero.pruebaSemillero.controllers;
 
 import com.semillero.pruebaSemillero.dao.RafPacienteDAO;
+import com.semillero.pruebaSemillero.dao.RafEspecieDAO;
+import com.semillero.pruebaSemillero.models.RafEspecieModel;
 import com.semillero.pruebaSemillero.models.RafPacientesModel;
 import com.semillero.pruebaSemillero.utils.JWTUtil;
 import jdk.jfr.Frequency;
@@ -15,6 +17,9 @@ public class RafPacienteController {
 
     @Autowired
     private RafPacienteDAO rafPacienteDAO;
+
+    @Autowired
+    private RafEspecieDAO rafEspecieDAO;
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -46,6 +51,12 @@ public class RafPacienteController {
     @RequestMapping(value = "api/pacientes/crear", method = RequestMethod.POST)
     public void registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
         rafPacienteDAO.registrarPaciente(rafPacientesModel);
+    }
+
+    @RequestMapping(value = "api/especies", method = RequestMethod.GET)
+    public List<RafEspecieModel> getEspecies(@RequestHeader(value = "Authorization") String token){
+
+        return rafEspecieDAO.getEspecies();
     }
 
 }
