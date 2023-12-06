@@ -10,8 +10,8 @@ public class RafTipoDocumentoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter @Column(name = "nmid")
-    private Long nmid;
+    @Getter @Setter @Column(name = "nmidtipoidentificacion")
+    private Long nmidtipoidentificacion;
 
     @Getter @Setter @Column(name = "dsnombre")
     private String dsnombre;

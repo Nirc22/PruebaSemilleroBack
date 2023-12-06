@@ -1,21 +1,21 @@
     CREATE TABLE IF NOT EXISTS `raf_tipoIdentificacion` (
-      `nmid` int NOT NULL AUTO_INCREMENT,
+      `nmidtipoidentificacion` int NOT NULL AUTO_INCREMENT,
       `dsnombre` varchar(100) NOT NULL,
-      PRIMARY KEY (`nmid`)
+      PRIMARY KEY (`nmidtipoidentificacion`)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
     CREATE TABLE IF NOT EXISTS `raf_especie` (
-      `nmid` int NOT NULL AUTO_INCREMENT,
+      `nmidespecie` int NOT NULL AUTO_INCREMENT,
       `dsnombre` varchar(100) NOT NULL,
-      PRIMARY KEY (`nmid`)
+      PRIMARY KEY (`nmidespecie`)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
     CREATE TABLE IF NOT EXISTS `raf_raza` (
-      `nmid` int NOT NULL AUTO_INCREMENT,
+      `nmidraza` int NOT NULL AUTO_INCREMENT,
       `dsnombre` varchar(100) NOT NULL,
       `nmidespecie` int NOT NULL,
-      PRIMARY KEY (`nmid`),
-      FOREIGN KEY (`nmidespecie`) REFERENCES `raf_especie` (`nmid`)
+      PRIMARY KEY (`nmidraza`),
+      FOREIGN KEY (`nmidespecie`) REFERENCES `raf_especie` (`nmidespecie`)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
   CREATE TABLE IF NOT EXISTS `raf_pacientes` (
@@ -32,9 +32,9 @@
     `nmtelefono` long NOT NULL,
     `feregistro` date NOT NULL,
     PRIMARY KEY (`nmid`),
-    FOREIGN KEY (`nmidespecie`) REFERENCES `raf_especie` (`nmid`),
-    FOREIGN KEY (`nmidraza`) REFERENCES `raf_raza` (`nmid`),
-    FOREIGN KEY (`nmidtipoidentificacion`) REFERENCES `raf_tipoIdentificacion` (`nmid`)
+    FOREIGN KEY (`nmidespecie`) REFERENCES `raf_especie` (`nmidespecie`),
+    FOREIGN KEY (`nmidraza`) REFERENCES `raf_raza` (`nmidraza`),
+    FOREIGN KEY (`nmidtipoidentificacion`) REFERENCES `raf_tipoIdentificacion` (`nmidtipoidentificacion`)
   )ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
     CREATE TABLE IF NOT EXISTS `raf_administradores` (
