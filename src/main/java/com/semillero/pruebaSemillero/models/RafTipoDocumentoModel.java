@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "raf_tipoIdentificacion")
+@Table(name = "raf_tipoidentificacion")
 public class RafTipoDocumentoModel {
 
     @Id

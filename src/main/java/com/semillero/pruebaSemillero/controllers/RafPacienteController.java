@@ -3,9 +3,11 @@ package com.semillero.pruebaSemillero.controllers;
 import com.semillero.pruebaSemillero.dao.RafPacienteDAO;
 import com.semillero.pruebaSemillero.dao.RafEspecieDAO;
 import com.semillero.pruebaSemillero.dao.RafRazaDAO;
+import com.semillero.pruebaSemillero.dao.RafTipoDocumentoDAO;
 import com.semillero.pruebaSemillero.models.RafEspecieModel;
 import com.semillero.pruebaSemillero.models.RafPacientesModel;
 import com.semillero.pruebaSemillero.models.RafRazaModel;
+import com.semillero.pruebaSemillero.models.RafTipoDocumentoModel;
 import com.semillero.pruebaSemillero.utils.JWTUtil;
 import jdk.jfr.Frequency;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class RafPacienteController {
     private RafEspecieDAO rafEspecieDAO;
     @Autowired
     private RafRazaDAO rafRazaDAO;
+
+    @Autowired
+    private RafTipoDocumentoDAO rafTipoDocumentoDAO;
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -67,6 +72,12 @@ public class RafPacienteController {
     public List<RafRazaModel> getRazas(){
 
         return rafRazaDAO.getRazas();
+    }
+
+    @RequestMapping(value = "api/getTiposDocumentos", method = RequestMethod.GET)
+    public List<RafTipoDocumentoModel> getTiposDocumentos(){
+
+        return rafTipoDocumentoDAO.getTiposDocumentos();
     }
 
 }
