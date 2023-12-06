@@ -30,7 +30,7 @@ public class RafPacienteDAOImpl implements RafPacienteDAO{
 
     @Override
     public void registrarPaciente(RafPacientesModel rafPacientesModel) {
-        entityManager.persist(rafPacientesModel);
+        entityManager.merge(rafPacientesModel);
     }
 
 }
