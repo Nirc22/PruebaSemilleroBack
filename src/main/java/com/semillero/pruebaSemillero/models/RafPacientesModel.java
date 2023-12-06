@@ -17,15 +17,33 @@ public class RafPacientesModel {
     private Long nmid;
     @Getter @Setter @Column(name = "dsnombre")
     private String dsnombre;
-    @Getter @Setter @Column(name = "nmidespecie")
-    private int nmidespecie;
-    @Getter @Setter @Column(name = "nmidraza")
-    private int nmidraza;
+
+    //@Getter @Setter @Column(name = "nmidespecie")
+    //private int nmidespecie;
+
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "nmidespecie")
+    private RafEspecieModel nmidespecie;
+
+    //@Getter @Setter @Column(name = "nmidraza")
+    //private int nmidraza;
+
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "nmidraza")
+    private RafRazaModel nmidraza;
     @Getter @Setter @Column(name = "fenacimiento")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fenacimiento;
-    @Getter @Setter @Column(name = "nmidtipoidentificacion")
-    private int nmidtipoidentificacion;
+
+    //@Getter @Setter @Column(name = "nmidtipoidentificacion")
+    //private int nmidtipoidentificacion;
+
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "nmidtipoidentificacion")
+    private RafTipoDocumentoModel nmidtipoidentificacion;
     @Getter @Setter @Column(name = "nmidentificacion")
     private int nmidentificacion;
     @Getter @Setter @Column(name = "dsduenio")

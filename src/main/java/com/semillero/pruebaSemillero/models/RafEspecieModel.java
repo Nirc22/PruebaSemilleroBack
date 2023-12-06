@@ -14,11 +14,11 @@ public class RafEspecieModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "nmidespecie")
-    private Long nmid;
+    private Long nmidespecie;
 
     @Getter @Setter @Column(name = "dsnombre")
     private String dsnombre;
 
-    @OneToMany(mappedBy = "nmidespecie")
-    private List<RafRazaModel> rafRazaModels;
+    //@OneToMany(mappedBy = "nmidespecie")
+    //private List<RafPacientesModel> rafPacientesModels;
 }

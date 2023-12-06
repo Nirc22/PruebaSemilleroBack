@@ -15,7 +15,7 @@ public class RafRazaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "nmidraza")
-    private Long nmid;
+    private Long nmidraza;
 
     @Getter @Setter @Column(name = "dsnombre")
     private String dsnombre;
