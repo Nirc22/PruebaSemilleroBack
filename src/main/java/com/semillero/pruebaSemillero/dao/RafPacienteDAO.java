@@ -11,4 +11,6 @@ public interface RafPacienteDAO {
     void eliminarPacientes(Long id);
 
     void registrarPaciente(RafPacientesModel rafPacientesModel);
+
+    void actualizarPacientes(Long id, RafPacientesModel rafPacientesModel);
 }

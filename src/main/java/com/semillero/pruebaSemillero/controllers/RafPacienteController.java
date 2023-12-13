@@ -50,16 +50,24 @@ public class RafPacienteController {
     }
 
     @RequestMapping(value = "api/pacientes/{id}", method = RequestMethod.DELETE)
-    public void eliminarPacientes(@RequestHeader (value = "Authorization") String token,
-                                  @PathVariable Long id){
+    public String eliminarPacientes(@PathVariable Long id){
 
         //if(!validarToken(token)){return;}
-        rafPacienteDAO.eliminarPacientes(id);//tratar con String
+        rafPacienteDAO.eliminarPacientes(id);
+        return "Paciente eliminado";
+    }
+
+    @RequestMapping(value = "api/pacientes/update/{id}", method = RequestMethod.PUT)
+    public String actualizarPacientes(@PathVariable Long id,
+                                    @RequestBody RafPacientesModel rafPacientesModel){
+        rafPacienteDAO.actualizarPacientes(id, rafPacientesModel);
+        return "Paciente actualizado";
     }
 
     @RequestMapping(value = "api/pacientes/crear", method = RequestMethod.POST)
-    public void registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
+    public String registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
         rafPacienteDAO.registrarPaciente(rafPacientesModel);
+        return "Paciente creado";
     }
 
     @RequestMapping(value = "api/getEspecies", method = RequestMethod.GET)
