@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class RafPacienteController {
@@ -34,7 +35,7 @@ public class RafPacienteController {
     private JWTUtil jwtUtil;
 
 
-    @RequestMapping(value = "api/pacientes", method = RequestMethod.GET)
+    @RequestMapping(value = "api/getPacientes", method = RequestMethod.GET)
     public List<RafPacientesModel> getPacientes(@RequestHeader(value = "Authorization") String token){
 
         //if(!validarToken(token)){return null;}
@@ -86,6 +87,13 @@ public class RafPacienteController {
     public List<RafTipoDocumentoModel> getTiposDocumentos(){
 
         return rafTipoDocumentoDAO.getTiposDocumentos();
+    }
+
+
+    @RequestMapping(value = "api/getPacienteId/{id}", method = RequestMethod.GET)
+    public Optional<RafPacientesModel> getPacienteId(@PathVariable Long id) {
+
+        return rafPacienteDAO.getPacientesId(id);
     }
 
 }

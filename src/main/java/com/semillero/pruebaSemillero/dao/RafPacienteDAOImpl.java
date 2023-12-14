@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -43,6 +44,12 @@ public class RafPacienteDAOImpl implements RafPacienteDAO{
         updatePaciente.setDsdireccion(rafPacientesModel.getDsdireccion());
         updatePaciente.setNmtelefono(rafPacientesModel.getNmtelefono());
         entityManager.merge(updatePaciente);
+    }
+
+    @Override
+    public Optional<RafPacientesModel> getPacientesId(Long id) {
+        RafPacientesModel rafPacientesModel = entityManager.find(RafPacientesModel.class, id);
+        return Optional.of(rafPacientesModel);
     }
 
 }

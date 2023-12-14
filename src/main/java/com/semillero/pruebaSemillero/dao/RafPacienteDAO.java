@@ -3,6 +3,7 @@ package com.semillero.pruebaSemillero.dao;
 import com.semillero.pruebaSemillero.models.RafPacientesModel;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RafPacienteDAO {
 
@@ -13,4 +14,6 @@ public interface RafPacienteDAO {
     void registrarPaciente(RafPacientesModel rafPacientesModel);
 
     void actualizarPacientes(Long id, RafPacientesModel rafPacientesModel);
+
+    Optional<RafPacientesModel> getPacientesId(Long id);
 }

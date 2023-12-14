@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -20,4 +21,5 @@ public class RafEspecieDAOImpl implements RafEspecieDAO{
         String query = "FROM RafEspecieModel";
         return entityManager.createQuery(query).getResultList();
     }
+
 }
