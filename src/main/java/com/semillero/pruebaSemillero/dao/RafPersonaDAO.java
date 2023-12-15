@@ -2,11 +2,12 @@ package com.semillero.pruebaSemillero.dao;
 
 import com.semillero.pruebaSemillero.models.RafPersonasModel;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface RafPersonaDAO {
 
-    //void registrarPersona(RafPersonasModel rafPersonasModel);
+    List<RafPersonasModel> getPersonas();
 
     void registrarPersona(RafPersonasModel rafPersonasModel);
 

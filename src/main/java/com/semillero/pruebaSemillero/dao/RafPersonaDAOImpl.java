@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -14,6 +15,12 @@ public class RafPersonaDAOImpl implements RafPersonaDAO{
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Override
+    public List<RafPersonasModel> getPersonas() {
+        String query = "FROM RafPersonasModel";
+        return entityManager.createQuery(query).getResultList();
+    }
 
     @Override
     public void registrarPersona(RafPersonasModel rafPersonasModel) {

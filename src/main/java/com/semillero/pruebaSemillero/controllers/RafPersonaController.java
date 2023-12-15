@@ -5,6 +5,7 @@ import com.semillero.pruebaSemillero.models.RafPersonasModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -12,6 +13,11 @@ public class RafPersonaController {
 
     @Autowired
     private RafPersonaDAO rafPersonaDAO;
+
+    @RequestMapping(value = "api/getPersonas", method = RequestMethod.GET)
+    public List<RafPersonasModel> getPersonas(){
+        return rafPersonaDAO.getPersonas();
+    }
 
     @RequestMapping(value = "api/persona/crear", method = RequestMethod.POST)
     public void registrarPersona(@RequestBody RafPersonasModel rafPersonasModel){
