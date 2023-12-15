@@ -34,15 +34,11 @@ public class RafPacienteDAOImpl implements RafPacienteDAO{
         entityManager.merge(rafPacientesModel);
     }
 
+
     @Override
     public void actualizarPacientes(Long id, RafPacientesModel rafPacientesModel) {
         RafPacientesModel updatePaciente = entityManager.find(RafPacientesModel.class, id);
-        updatePaciente.setNmidtipoidentificacion(rafPacientesModel.getNmidtipoidentificacion());
-        updatePaciente.setNmidentificacion(rafPacientesModel.getNmidentificacion());
-        updatePaciente.setDsduenio(rafPacientesModel.getDsduenio());
-        updatePaciente.setDsciudad(rafPacientesModel.getDsciudad());
-        updatePaciente.setDsdireccion(rafPacientesModel.getDsdireccion());
-        updatePaciente.setNmtelefono(rafPacientesModel.getNmtelefono());
+        updatePaciente.setNmidpersona(rafPacientesModel.getNmidpersona());
         entityManager.merge(updatePaciente);
     }
 

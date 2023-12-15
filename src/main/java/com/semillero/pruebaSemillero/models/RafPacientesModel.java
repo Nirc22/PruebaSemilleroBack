@@ -40,22 +40,12 @@ public class RafPacientesModel {
     //@Getter @Setter @Column(name = "nmidtipoidentificacion")
     //private int nmidtipoidentificacion;
 
-    @Getter @Setter
-    @ManyToOne
-    @JoinColumn(name = "nmidtipoidentificacion")
-    private RafTipoDocumentoModel nmidtipoidentificacion;
-    @Getter @Setter @Column(name = "nmidentificacion")
-    private int nmidentificacion;
-    @Getter @Setter @Column(name = "dsduenio")
-    private String dsduenio;
-    @Getter @Setter @Column(name = "dsciudad")
-    private String dsciudad;
-    @Getter @Setter @Column(name = "dsdireccion")
-    private String dsdireccion;
-    @Getter @Setter @Column(name = "nmtelefono")
-    private Long nmtelefono;
     @Getter @Setter @Column(name = "feregistro")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date feregistro;
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "nmidpersona")
+    private RafPersonasModel nmidpersona;
 
 }

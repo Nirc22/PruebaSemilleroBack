@@ -63,6 +63,8 @@ public class RafPacienteController {
         rafPacienteDAO.actualizarPacientes(id, rafPacientesModel);
     }
 
+
+
     @RequestMapping(value = "api/pacientes/crear", method = RequestMethod.POST)
     public void registrarPacientes(@RequestBody RafPacientesModel rafPacientesModel){
         rafPacienteDAO.registrarPaciente(rafPacientesModel);
