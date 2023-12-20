@@ -2,6 +2,8 @@ package com.semillero.pruebaSemillero.dao;
 
 import com.semillero.pruebaSemillero.models.RafPacientesModel;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,4 +18,6 @@ public interface RafPacienteDAO {
     void actualizarPacientes(Long id, RafPacientesModel rafPacientesModel);
 
     Optional<RafPacientesModel> getPacientesId(Long id);
+
+    ByteArrayInputStream exportPacientes() throws Exception;
 }

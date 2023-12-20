@@ -11,8 +11,13 @@ import com.semillero.pruebaSemillero.models.RafTipoDocumentoModel;
 import com.semillero.pruebaSemillero.utils.JWTUtil;
 import jdk.jfr.Frequency;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -93,6 +98,18 @@ public class RafPacienteController {
     public Optional<RafPacientesModel> getPacienteId(@PathVariable Long id) {
 
         return rafPacienteDAO.getPacientesId(id);
+    }
+
+    @RequestMapping(value = "api/exportPacientes", method = RequestMethod.GET)
+    public ResponseEntity<InputStreamResource> exportPacientes()throws Exception{
+        ByteArrayInputStream stream = rafPacienteDAO.exportPacientes();
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.add("Content-Disposition","attachment; filename= pacientes.xls" );
+
+        return ResponseEntity.ok().headers(headers).body(new InputStreamResource(stream));
+
     }
 
 }
